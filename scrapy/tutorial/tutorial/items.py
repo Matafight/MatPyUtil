@@ -11,5 +11,9 @@ import scrapy
 class TutorialItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    news_content = scrapy.Field()
+    pass
 
+class news_nuaa_items(scrapy.Item):
+    title = scrapy.Field()
+    time = scrapy.Field()
+    content = scrapy.Field()
