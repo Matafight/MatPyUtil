@@ -6,7 +6,10 @@ class news_nuaa_spider(scrapy.Spider):
     allowed_domains = ['cs.nuaa.edu.cn']
     def parse(self,response):
         item = TutorialItem()
-        item['news_content'] = response.xpath('//h2[@class = "C"]').extract()
+        sles= response.xpath('//div[@class = "content"]')
+        for sele in sles:
+            pagarph = sele.xpath('p/text()').extract()
+            print(pagarph)
         #print(item['news_content'][0])
         yield item
         #pass
