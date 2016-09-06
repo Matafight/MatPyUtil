@@ -11,12 +11,12 @@ class news_nuaa_spider(scrapy.Spider):
 
         for title in news_title:
             tartitle  = title.extract()
-            item['title'] = tartitle
+            item['title'] = tartitle.encode('utf-8')
             print(item['title'])
         news_time = response.xpath('//div[@class= "info"]/text()')
 
         for time in news_time:
-            tartime = time.extract()
+            tartime = time.extract().encode('utf-8')
             item['time']= tartime
 
         news_content = response.xpath('//div[@class= "content"]')
